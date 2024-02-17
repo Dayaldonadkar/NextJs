@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-bgSoft text-white">
+      <body className="bg-bgSoft text-white flex flex-col justify-between h-screen">
         <Navbar />
         {children}
         <Footer />
