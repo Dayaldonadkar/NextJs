@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 const Links = () => {
+  const session = true;
+  const isAdmin = true;
   const links = [
     {
       title: "Home",
@@ -20,15 +23,36 @@ const Links = () => {
       path: "/blog",
     },
   ];
+  const router = useRouter();
+  const pathname = usePathname();
+  console.log(pathname);
   return (
-    <div className="flex">
-      {links.map((link) => (
-        <ul>
+    <div>
+      <ul className="md:flex md:space-x-5 lg:space-x-8">
+        {links.map((link) => (
           <Link href={link.path}>
-            <li>{link.title}</li>
+            <li
+              className={`px-3 py-1 ${
+                pathname === link.path && "bg-white text-black rounded-lg" // Add for current page
+              }`}
+            >
+              {link.title}
+            </li>
           </Link>
-        </ul>
-      ))}
+        ))}
+        {session ? (
+          <>
+            <li className="py-1 px-3">
+              {isAdmin && <Link href="/admin">Admin</Link>}
+            </li>{" "}
+            <button className="py-1 px-3 bg-white text-black">Logout</button>
+          </>
+        ) : (
+          <Link href="/login">
+            <button className="py-1 px-3">Login</button>
+          </Link>
+        )}{" "}
+      </ul>
     </div>
   );
 };
