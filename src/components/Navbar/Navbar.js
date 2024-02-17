@@ -8,8 +8,8 @@ const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   return (
     <div className="flex justify-center relative py-5">
-      <div className="flex justify-between w-[90%] lg:w-4/5">
-        <h1>Dayal</h1>
+      <div className="flex justify-between items-center w-[85%] lg:w-4/5 xl:w-4/6">
+        <h1 className="text-3xl font-bold">Dayal</h1>
         <div className="hidden md:block">
           <Links />
         </div>

@@ -12,6 +12,8 @@ module.exports = {
     extend: {
       backgroundColor: {
         bgSoft: "#0d0c22",
+        btn: "#3673fd",
+        btn2: "#e5e5e5",
       },
       textColor: {
         white: "white",
